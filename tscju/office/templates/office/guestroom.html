@@ -1,0 +1,19 @@
+{% extends 'office/main.html' %}
+
+{% block content %}
+
+<div class="guestroom">
+    <div class="add" style="float: right; margin-right: 50px;">
+        <a href="{% url 'bookguestroom' %}" class="btn btn-success">Book A Room</a>
+    </div>
+    {% for i in guestroom %}
+    <div class="guest">
+        <h1>Room No : {{i.roomNo}}</h1>
+        <h4>Start Date : {{i.stayingStart}}</h4>
+        <h4>End Date : {{i.stayingEnd}}</h4>
+        <a class="btn btn-danger" href="{% url 'cancelbooking' i.id %}">Cancel Booking</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

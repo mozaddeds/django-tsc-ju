@@ -1,0 +1,17 @@
+{% extends 'office/main.html' %}
+
+{% block content %}
+
+<div class="rooms">
+    {% for i in organisations %}
+    <div href="#" class="roomBox">
+        <h1><span class="textStyle" style="color: white;"> Room NO {{i.roomNo}} </span></h1>
+        <div class="d-flex justify-content-around my-3">
+            <button><span class="textStyle" style="color: red;">Sitting Status : {{i.sitting}} </span></button>
+            <a class="btn btn-warning" href="{% url 'updatesitting' i.id %}">UPDATE</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

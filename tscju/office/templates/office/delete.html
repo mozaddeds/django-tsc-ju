@@ -1,0 +1,17 @@
+{% extends 'office/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3>ARE YOU SURE YOU WANT TO DELETE {{name}}?</h3>
+
+<form class="d-flex justify-content-around my-4" action="" method="POST">
+
+    {% csrf_token %}
+
+    <a class="btn btn-primary" href="{% url 'home' %}">Cancel</a>
+    <input type="submit" name="Confirm">
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'office/main.html' %}
+
+{% block content %}
+
+<div class="muktomoncho">
+    <div class="add" style="float: right; margin-right: 50px;">
+        <a href="{% url 'addevent' %}" class="btn btn-success">Add Event</a>
+    </div>
+    {% for i in muktomoncho %}
+    <div class="stage">
+        <h1>{{i.eventName}}</h1>
+        <h4>Hosted by {{i.bookedBy}}</h4>
+        <h4>Event Date : {{i.eventDate}}</h4>
+        <div class="d-flex justify-content-between">
+            <a href="{% url 'updateevent' i.id %}" class="btn btn-primary my-4">Update</a>
+            <a href="{% url 'deleteevent' i.id %}" class="btn btn-danger my-4">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
