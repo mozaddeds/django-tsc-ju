@@ -1,0 +1,19 @@
+{% extends 'office/main.html' %}
+
+{% block content %}
+
+<div class="guestroom">
+    <div class="add" style="float: right; margin-right: 50px;">
+        <a href="{% url 'addappointment' %}" class="btn btn-success">Request for an Appointment</a>
+    </div>
+    {% for i in appointment %}
+    <div class="guest">
+        <h1>Appointment for : {{i.teacher.name}}</h1>
+        <h4>Time : {{i.time}}</h4>
+        <h4>by : {{i.name}}</h4>
+        <a class="btn btn-danger" href="{% url 'cancelappointment' i.id %}">Cancel Appointment</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

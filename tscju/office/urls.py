@@ -8,7 +8,9 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('muktomoncho/', views.muktomoncho, name="muktomoncho"),
     path('guestroom/', views.guestroom, name="guestroom"),
+    path('appointment/', views.appointment, name="appointment"),
     path('organisation_details/<str:pk>/', views.organisation, name="organisationDetails"),
+    
 
     path('update_sitting/<str:pk>/', views.updateSitting, name="updatesitting"),
 
@@ -18,4 +20,7 @@ urlpatterns = [
 
     path('add_guestroom/', views.bookGuestRoom, name="bookguestroom"),
     path('delete_guestroom/<str:pk>/', views.cancelBooking, name="cancelbooking"),
+
+    path('add_appointment/', views.addAppointment, name="addappointment"),
+    path('cancel_appointment/<str:pk>/', views.cancelAppointment, name="cancelappointment"),
 ]

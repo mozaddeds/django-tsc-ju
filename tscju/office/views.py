@@ -61,6 +61,15 @@ def organisation(request, pk):
     return render(request, 'office/organisations.html', context)
 
 
+def appointment(request):
+
+    appointment = Appointment.objects.all()
+
+    context = {'appointment' : appointment}
+
+    return render(request, 'office/appointment.html', context)
+
+
 def addEvent(request):
 
     form = addEventForm()
@@ -124,4 +133,28 @@ def cancelBooking(request, pk):
         return redirect('/')
 
     context = {'name':guest}
+    return render(request, 'office/delete.html', context)
+
+def addAppointment(request):
+
+    appointment = addAppointmentForm()
+    if request.method == 'POST':
+        appointment = addAppointmentForm(request.POST)
+        if appointment.is_valid():
+            appointment.save()
+            return redirect('/')
+
+    context = {'form' : appointment}
+
+    return render(request, 'office/addappointment.html', context)
+
+
+def cancelAppointment(request, pk):
+
+    appointment = Appointment.objects.get(id=pk)
+    if request.method == 'POST':
+        appointment.delete()
+        return redirect('/')
+
+    context = {'name':appointment}
     return render(request, 'office/delete.html', context)

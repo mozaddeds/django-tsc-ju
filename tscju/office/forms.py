@@ -1,7 +1,7 @@
 from dataclasses import field
 from pyexpat import model
 from django.forms import ModelForm
-from . models import Muktomoncho, Guest, Organisation
+from . models import Appointment, Muktomoncho, Guest, Organisation
 
 
 
@@ -20,3 +20,9 @@ class sittingStatus(ModelForm):
     class Meta:
         model = Organisation
         fields = ['sitting']
+
+
+class addAppointmentForm(ModelForm) :
+    class Meta:
+        model = Appointment
+        fields = '__all__'

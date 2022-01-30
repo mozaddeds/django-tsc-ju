@@ -66,3 +66,13 @@ class Muktomoncho (models.Model):
 
     def __str__(self):
         return self.eventName
+
+class Appointment (models.Model):
+    name = models.CharField(max_length=200, null=True)
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, null=True)
+    phone = models.IntegerField(max_length=12, null=True)
+    time = models.DateTimeField()
+    id = models.AutoField(max_length=3, primary_key=True)
+
+    def __str__(self):
+        return self.name
